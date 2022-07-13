@@ -59,7 +59,7 @@ select l in "${INSTALLER_LANG_NAMES[@]}"; do
 done < /dev/tty
 
 echo 'Fetching and unpacking theme'
-wget -O - https://github.com/shvchk/${GRUB_THEME}/archive/master.tar.gz | tar -xzf - --strip-components=1
+wget -O - https://github.com/awseale/${GRUB_THEME}/archive/master.tar.gz | tar -xzf - --strip-components=1
 
 if [[ "$INSTALLER_LANG" != "English" ]]; then
     echo "Changing language to ${INSTALLER_LANG}"
@@ -90,7 +90,7 @@ if [[ -e /etc/os-release ]]; then
         UPDATE_GRUB='update-grub'
 
     elif [[ "$ID" =~ (arch|gentoo) || \
-            "$ID_LIKE" =~ (archlinux|gentoo) ]]; then
+            "$ID_LIKE" =~ (arch|gentoo) ]]; then
 
         UPDATE_GRUB='grub-mkconfig -o /boot/grub/grub.cfg'
 
